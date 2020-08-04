@@ -1,0 +1,54 @@
+/*Criando o banco*/
+CREATE DATABASE boletrim;
+GO
+
+/*TABELA*/
+CREATE TABLE aluno(
+	/*pRIMARY KEY*/
+	/*identity gera os id de forma sequencial*/
+	idAluno INT IDENTITY PRIMARY KEY NOT NULL,
+	Nome VARCHAR (100) NOT NULL,
+	Ra VARCHAR (20),
+	Idade INT
+);
+/*TABELA MATERIA*/
+CREATE TABLE materia(
+	IdMateria INT PRIMARY KEY IDENTITY NOT NULL,
+	Titulo VARCHAR(50) NOT NULL
+
+);
+/*TABELA TRABALHO*/
+CREATE TABLE trabalho(
+	Idtrabalho INT PRIMARY KEY IDENTITY NOT NULL,
+	nota DECIMAL,
+	--CHAMANDO CHAVES ESTRANGEIRAS
+	IdAluno INT FOREIGN KEY REFERENCES aluno (IdAluno),
+	IdMateria INT FOREIGN KEY REFERENCES materia (IdMateria)
+);
+-- COLUNA
+ALTER TABLE trabalho ADD DataEntrega DATETIME;
+
+--EXERCICIOS
+/*Criando o banco*/
+CREATE DATABASE clinicaVet;
+GO
+CREATE TABLE clinica(
+	idClinica INT IDENTITY PRIMARY KEY NOT NULL,
+	Nome VARCHAR (100) NOT NULL,
+	Endereco VARCHAR (20)
+);
+
+--ERRO
+CREATE TABLE veternario(
+	
+);
+CREATE TABLE racas(
+	
+);
+CREATE TABLE donos(
+	
+);
+
+CREATE TABLE pets(
+
+);
